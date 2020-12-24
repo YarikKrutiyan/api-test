@@ -1,5 +1,5 @@
 import requests
-from api.main_api import Authorization
+# from api.main_api import Authorization
 
 from src.config import USER_MY
 

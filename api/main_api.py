@@ -30,12 +30,15 @@ class MainApi(object):
         self.headers.update(header_auth)
         return self.headers
 
-headers = {'Content-Type': 'application/json'}
-endpoint = "/api/v1.1/auth/user/sign-in"
-set_environment = "https://test.agro-online.com"
-company_id = 587
-z = MainApi(headers)
-print(z.auth_header())
+def authorization(host, user):
+    url = host + "/api/v1.1/auth/user/sign-in"
+    payload = json.dumps(user)
+    headers = {
+        'Content-Type': 'application/json',
+    }
+    response = requests.request("POST", url, headers=headers, data=payload)
+    print(response)
+    return response
 
 
 
