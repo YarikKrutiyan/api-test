@@ -1,4 +1,4 @@
-from api.main_api import Authorization
+from api.auth.api_authorization import authorization
 from src.config import USER_MY
 from src.endpoint import Counterparties
 from src.base_api import post
@@ -89,7 +89,7 @@ class TestAddCounterpatiesEntrepreneur:
         assert add_counterpaties.json()['errors']['company_id'][0] == 2002, 'company id is not integer'
 
     def test_add_counterparties_no_acces_company_id(self, hosts, dict_for_test):
-        token = Authorization.authorization(hosts['endpoint'], USER_MY).json()['token']
+        token = authorization(hosts['endpoint'], USER_MY).json()['token']
         dict_for_test['company_id'] = 254
         add_counterpaties = post(hosts['endpoint'], Counterparties.add_counterpaties_endpoint, token,
                                  dict_for_test)

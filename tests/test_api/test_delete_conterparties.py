@@ -1,6 +1,6 @@
 import pytest
 
-from api.main_api import Authorization
+from api.auth.api_authorization import authorization
 from src.base_api import post
 from src.config import USER_MY
 from src.endpoint import Counterparties
@@ -101,7 +101,7 @@ class TestDeleteCounterparties:
         assert del_counterparties_company.json()['errors']['counterparties_ids'][1] == 2017, "Not valid error code"
 
     def test_negat_del_counterparties_without_access_company(self, hosts, ids_of_counterparties_company):
-        token = Authorization.authorization(hosts['endpoint'], USER_MY).json()['token']
+        token = authorization(hosts['endpoint'], USER_MY).json()['token']
         r_data = dict(company_id=hosts['company_id'], counterparties_ids=[ids_of_counterparties_company[0]])
 
         del_counterparties_company = post(hosts['endpoint'], Counterparties.del_counterpaties_endpoint,

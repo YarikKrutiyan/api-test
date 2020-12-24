@@ -1,6 +1,6 @@
 import pytest
 
-from api.main_api import Authorization
+from api.auth.api_authorization import authorization
 from src.base_api import patch_with_url_params, post
 from src.config import USER_MY
 from src.endpoint import Counterparties
@@ -93,7 +93,7 @@ class TestPatchCounterpartiesAsCompany:
         assert patch_counterparties.json()['errors']['registration_type'][0] == 2017, " Status code not valid"
 
     def test_negative_patch_without_access_to_company(self, hosts, ids_of_counterparties_company, array_with_all_key):
-        token = Authorization.authorization(hosts['endpoint'], USER_MY).json()['token']
+        token = authorization(hosts['endpoint'], USER_MY).json()['token']
         patch_counterparties = patch_with_url_params(hosts['endpoint'], Counterparties.add_counterpaties_endpoint,
                                                      token, str(ids_of_counterparties_company[0]),
                                                      array_with_all_key)
