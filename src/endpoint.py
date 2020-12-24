@@ -1,7 +1,3 @@
-class AuthorizationEndpoint(object):
-    post_auth = '/api/v1.1/auth/user/sign-in'
-
-
 class Lands(object):
     get_lands = "/api/v1.1/land-holders/lands"
     create_land = "/api/v1.1/land-holders/lands"
@@ -27,8 +23,6 @@ class FieldReports(object):
 class AddFileToReport(object):
     add_file_endpoint = "/api/v1.1/field-reports/media?json="
 
-
-class CounterpartyEndpoints(object):
-    get = "/api/v1.1/counterparties"
-    post = "/api/v1.1/counterparties"
-    delete = "/api/v1.1/counterparties/delete"
+class Counterparties (object):
+    add_counterpaties_endpoint = "/api/v1.1/counterparties"
+    del_counterpaties_endpoint = "/api/v1.1/counterparties/delete"

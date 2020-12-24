@@ -1,7 +1,7 @@
 import pytest
 
 from src.config import *
-from api.main_api import Authorization
+from api.auth.api_authorization import authorization
 from src.lib import create_random_string, request_to_db
 from src.sql_request import SELECT_LAND_ID, SELECT_EXIST_TITLE
 from src.base_api import post
@@ -175,7 +175,7 @@ class TestCreateLAnd:
         assert land.json()["errors"]["company_id"][0] == 2002, 'Code of errors status - company_id Integer field'
 
     def test_create_lend_company_id_no_access(self, hosts):
-        token = Authorization.authorization(hosts['endpoint'], USER_MY).json()['token']
+        token = authorization(hosts['endpoint'], USER_MY).json()['token']
         company_id_no_access = CREATE_LAND_POSIT.copy()
         company_id_no_access["company_id"] = 88
         land = post(hosts['endpoint'], Lands.create_land, token, company_id_no_access)

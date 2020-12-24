@@ -1,6 +1,5 @@
 import requests
-# from api.main_api import Authorization
-
+from api.auth.api_authorization import authorization
 from src.config import USER_MY
 
 
@@ -22,5 +21,5 @@ def routes(hosts, token):
 
 host = "https://test.agro-online.com"
 
-t = Authorization.authorization(host, USER_MY).json()['token']
+t = authorization(host, USER_MY).json()['token']
 routes(host, t)
