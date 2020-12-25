@@ -6,7 +6,7 @@ RUN python3 -m venv venv
 RUN source venv/bin/activate
 RUN pip3 install awscli
 CMD pip3 install requirements.txt
-CMD venv/bin/pytest  -v  tests/test_api/test_catalog_culture_list.py --junitxml=reports/result.xml
+#CMD venv/bin/pytest  -v  tests/test_api/test_catalog_culture_list.py --junitxml=reports/result.xml
 
 #CMD ["pytest", "-v", "tests","--junitxml=reports/result.xml"]
 
