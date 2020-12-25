@@ -20,8 +20,8 @@ pipeline {
                }
             steps{
                  echo " ============== pytest =================="
-                 dir ('venv/bin'){
-                     sh 'pytest -v tests/test_api/test_catalog_culture_list.py --junit-xml=reports/result.xml'
+                 dir ('/'){
+                     sh 'venv/bin/pytest -v tests/test_api/test_catalog_culture_list.py --junit-xml=reports/result.xml'
 
                  }
 
