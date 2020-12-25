@@ -6,17 +6,16 @@
 
 
 FROM python:3.6-slim
-WORKDIR /workspace
 RUN pwd
 RUN ls -AL
 
 
 
-CMD pip3 install --no-cache-dir -r /workspace/requirements.txt
+CMD pip3 install --no-cache-dir -r /requirements.txt
 RUN pip3 install pytest
 RUN ls -Al
-#RUN ["pytest", "-v", "--junitxml=reports/result.xml"]
-CMD pytest  -v  /workspace/tests/test_api/test_catalog_culture_list.py --junit-xml=/reports/result.xml
+RUN ["pytest", "-v", "--junitxml=reports/result.xml"]
+#CMD pytest  -v  /workspace/tests/test_api/test_catalog_culture_list.py --junitxml=/reports/result.xml
 #RUN python3 -m venv venv
 #RUN source venv/bin/activate
 #CMD pip3 install requirements.txt
