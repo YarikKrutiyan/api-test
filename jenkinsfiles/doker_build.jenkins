@@ -19,14 +19,4 @@ pipeline {
                }
             }
         }
-        stage("pytest") {
-            steps {
-                echo " ============== pytest =================="
-                dir (tests){
-                    sh 'pytest test_api'
-                }
-              }
-            }
-        }
-
 }
