@@ -18,14 +18,14 @@ pipeline {
                     sh 'docker build . '
                }
             }
+        stage("pytest") {
             steps {
                 echo " ============== pytest =================="
                 dir (tests){
                     sh 'venv/bin/pytest test_api'
                 }
-
+              }
             }
-          }
+        }
     }
-
 }
