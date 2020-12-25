@@ -26,6 +26,7 @@ pipeline {
                 echo " ============== pytest =================="
                dir ('workspace') {
                     sh 'pwd'
+                    sh 'ls -Al'
                     sh 'venv/bin/pytest -v tests/test_api/test_catalog_culture_list.py --junitxml=reports/result.xml'
 
                }
