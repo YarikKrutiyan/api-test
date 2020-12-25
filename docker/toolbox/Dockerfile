@@ -12,7 +12,8 @@ RUN ls -AL
 
 
 
-CMD pip install --no-cache-dir -r /workspace/requirements.txt
+CMD pip3 install --no-cache-dir -r /workspace/requirements.txt
+RUN pip3 install pytest
 RUN ls -Al
 RUN ["pytest", "-v", "--junitxml=reports/result.xml"]
 #RUN python3 -m venv venv
