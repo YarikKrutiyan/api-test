@@ -6,8 +6,6 @@
 
 
 FROM python:3.6-slim
-COPY . /api-test
-WORKDIR /api-test
 RUN pwd
 RUN ls -AL
 RUN pip install --no-cache-dir -r /api-test/requirements.txt
