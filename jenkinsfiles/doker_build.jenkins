@@ -16,20 +16,17 @@ pipeline {
                 echo " ============== start building image =================="
                dir ('docker/toolbox') {
                     sh 'docker build . '
-                    sh 'cd ../../../../..'
-                    sh 'pwd'
-                    sh 'venv/bin/pytest -v tests/test_api/test_catalog_culture_list.py --junitxml=reports/result.xml'
-
-
                }
 
             }
+
+        }
+        stage("create docker image") {
             steps {
-                echo " ============== start building image =================="
+                echo " ============== pytest =================="
                dir ('workspace') {
                     sh 'pwd'
                     sh 'venv/bin/pytest -v tests/test_api/test_catalog_culture_list.py --junitxml=reports/result.xml'
-
 
                }
 
