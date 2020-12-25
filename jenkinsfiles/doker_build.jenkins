@@ -16,6 +16,8 @@ pipeline {
                 echo " ============== start building image =================="
                dir ('docker/toolbox') {
                     sh 'docker build . '
+                    sh 'git config --global user.email "yarikkrutiyan@gmail.com"'
+                    sh 'git config --global user.name "YarikKrutiyan"'
                     sh 'git commit -m "qqqq"'
                     sh 'git push'
 
