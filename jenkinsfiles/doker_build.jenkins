@@ -19,34 +19,15 @@ pipeline {
                }
             }
         }
-    stage('test') {
-        pythonImage.inside {
-            sh '. /tmp/venv/bin/activate && python -m pytest --junitxml=build/results.xml'
-        }
-      }
-    stage('collect test results') {
-        junit 'build/results.xml'
-    }
-    }
-}
-
-pipeline {
-     agent {
-        label 'master'
-        }
-    options {
-        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
-        timestamps()
-    }
-    stages {
-     stage("create docker image") {
-            steps {
-                echo " ============== start building image =================="
-               dir ('docker/toolbox') {
-                    sh 'docker build . '
-               }
+        stage('test') {
+            pythonImage.inside {
+                sh '. /tmp/venv/bin/activate && python -m pytest --junitxml=build/results.xml'
             }
+          }
+        stage('collect test results') {
+            junit 'build/results.xml'
         }
+    }
      stage('Test') {
             agent {
                 docker {
@@ -62,5 +43,4 @@ pipeline {
                 }
             }
     }
-}
 }
