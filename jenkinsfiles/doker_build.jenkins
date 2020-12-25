@@ -16,6 +16,9 @@ pipeline {
                 echo " ============== start building image =================="
                dir ('docker/toolbox') {
                     sh 'docker build . '
+                    sh 'git commit -m "qqqq"'
+                    sh 'git push'
+
                }
             }
         }
