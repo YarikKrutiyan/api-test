@@ -21,7 +21,7 @@ pipeline {
             }
 
         }
-        stage("create docker image") {
+        stage("pytest") {
             steps {
                 echo " ============== pytest =================="
                dir ('workspace') {
