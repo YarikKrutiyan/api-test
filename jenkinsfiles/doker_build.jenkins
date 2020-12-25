@@ -18,6 +18,7 @@ pipeline {
                     sh 'docker build . '
                     sh 'git config --global user.email "yarikkrutiyan@gmail.com"'
                     sh 'git config --global user.name "YarikKrutiyan"'
+                    sh 'git add .'
                     sh 'git commit -m "qqqq"'
                     sh 'git push'
 
