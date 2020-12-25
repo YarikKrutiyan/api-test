@@ -23,7 +23,7 @@ pipeline {
             steps {
                 echo " ============== run pytest =================="
                dir ('tests/test_api') {
-                    'pytest test_catalog_culture_list'
+                    pytest 'test_catalog_culture_list'
                }
             }
         }
