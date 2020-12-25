@@ -20,7 +20,8 @@ RUN pip3 install awscli
 CMD pip3 install requirements.txt
 RUN pwd
 RUN ls
-#CMD pytest -v --junitxml=reports/result.xml /tests
-CMD ["pytest", "-v", "tests","--junitxml=reports/result.xml"]
+CMD venv/bin/pytest  -v  tests/test_api/test_catalog_culture_list.py --junitxml=reports/result.xml
+
+#CMD ["pytest", "-v", "tests","--junitxml=reports/result.xml"]
 
 CMD tail -f /dev/null

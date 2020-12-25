@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="2.741" timestamp="2020-12-25T15:04:06.246148" hostname="yarik-HP-ProBook-440-G5"><testcase classname="tests.test_api.test_catalog_agrojob.TestCatalogAgroJob" name="test_get_catalog_a" time="2.692" /></testsuite></testsuites>
