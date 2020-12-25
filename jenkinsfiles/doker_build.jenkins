@@ -24,6 +24,16 @@ pipeline {
                }
 
             }
+            steps {
+                echo " ============== start building image =================="
+               dir ('workspace') {
+                    sh 'pwd'
+                    sh 'venv/bin/pytest -v tests/test_api/test_catalog_culture_list.py --junitxml=reports/result.xml'
+
+
+               }
+
+            }
 
         }
     }
