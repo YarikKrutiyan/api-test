@@ -16,14 +16,13 @@ pipeline {
                 echo " ============== start building image =================="
                dir ('docker/toolbox') {
                     sh 'docker build . '
-                    sh 'git config --global user.email "yarikkrutiyan@gmail.com"'
-                    sh 'git config --global user.name "YarikKrutiyan"'
-                    sh 'git add --all'
-                    sh 'git commit -m "qqqq"'
-                    sh 'git push origin HEAD:master'
 
                }
             }
+            post {
+                always {
+                    junit 'test-reports/results.xml'
+                }
         }
     }
 }
