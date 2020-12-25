@@ -16,7 +16,7 @@ pipeline {
                 echo " ============== start building image =================="
                dir ('docker/toolbox') {
                     sh 'docker build . '
-                    sh 'py.test --junit-xml reports/results.xml tests/test_api/test_catalog_culture_list.py'
+                    sh 'venv/bin/pytest --junit-xml reports/results.xml tests/test_api/test_catalog_culture_list.py'
                }
             }
             post {
