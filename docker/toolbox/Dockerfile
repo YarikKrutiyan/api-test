@@ -16,7 +16,7 @@ CMD pip3 install --no-cache-dir -r /workspace/requirements.txt
 RUN pip3 install pytest
 RUN ls -Al
 #RUN ["pytest", "-v", "--junitxml=reports/result.xml"]
-RUN pytest  -v  tests/test_api/test_catalog_culture_list.py --junitxml=reports/result.xml
+RUN pytest  -v  /workspace/tests/test_api/test_catalog_culture_list.py --junitxml=reports/result.xml
 #RUN python3 -m venv venv
 #RUN source venv/bin/activate
 #CMD pip3 install requirements.txt
