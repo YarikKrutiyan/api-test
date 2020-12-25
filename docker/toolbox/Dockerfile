@@ -1,4 +1,4 @@
-FROM alpine
+FROM python:3.6-slim
 COPY . /api-test
 WORKDIR /api-test
 RUN apk add --update-cache curl wget busybox-extras netcat-openbsd python3 py-pip
