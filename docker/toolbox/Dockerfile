@@ -6,6 +6,8 @@
 
 
 FROM python:3.6-slim
+COPY . /api-test
+WORKDIR /workspace
 RUN pwd
 RUN ls -AL
 
